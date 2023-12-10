@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 local config = {}
 
@@ -17,15 +18,26 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1.0
 config.text_background_opacity = 1.0
 
-config.font = wezterm.font("FiraCode NFM", { weight = "Regular" })
+-- config.font = wezterm.font("FiraCode NFM", { weight = "Medium" })
+config.font = wezterm.font("FiraCode NFM")
 config.font_size = 14.0
-config.color_scheme = "OneHalfDark"
+config.color_scheme = "kanagawa-dragon"
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+
 
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
+
+config.audible_bell = "Disabled"
+
+wezterm.on('gui-startup', function(window)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  local gui_window = window:gui_window();
+  gui_window:perform_action(wezterm.action.ToggleFullScreen, pane)
+end)
 
 return config
