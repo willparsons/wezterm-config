@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
+local keymaps = require("keymaps")
 
 local config = {}
 
@@ -8,9 +9,6 @@ local config = {}
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
-
--- default to WSL
-config.default_domain = "WSL:Ubuntu"
 
 config.window_padding = {
 	left = 0,
@@ -21,12 +19,10 @@ config.window_padding = {
 config.window_background_opacity = 1.0
 config.text_background_opacity = 1.0
 
--- config.font = wezterm.font("FiraCode NFM", { weight = "Medium" })
-config.font = wezterm.font("FiraCode NFM")
-config.font_size = 14.0
+config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular" })
+config.font_size = 24.0
 config.color_scheme = "kanagawa-dragon"
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
@@ -34,10 +30,16 @@ config.tab_bar_at_bottom = true
 
 config.audible_bell = "Disabled"
 
-wezterm.on('gui-startup', function(window)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  local gui_window = window:gui_window();
-  gui_window:perform_action(wezterm.action.ToggleFullScreen, pane)
+wezterm.on("gui-attached", function(_)
+	-- maximize all displayed windows on startup
+	local workspace = mux.get_active_workspace()
+	for _, window in ipairs(mux.all_windows()) do
+		if window:get_workspace() == workspace then
+			window:gui_window():maximize()
+		end
+	end
 end)
+
+config.keys = keymaps
 
 return config
