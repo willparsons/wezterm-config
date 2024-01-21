@@ -23,8 +23,8 @@ config.text_background_opacity = 1.0
 
 -- config.font = wezterm.font("FiraCode NFM", { weight = "Medium" })
 config.font = wezterm.font("FiraCode NFM")
-config.font_size = 14.0
-config.color_scheme = "kanagawa-dragon"
+config.font_size = 16.0
+config.color_scheme = "nordic"
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 
