@@ -20,7 +20,7 @@ config.window_background_opacity = 1.0
 config.text_background_opacity = 1.0
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 24.0
+config.font_size = 26.0
 config.color_scheme = "kanagawabones"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
