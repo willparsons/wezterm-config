@@ -24,7 +24,8 @@ config.text_background_opacity = 1.0
 -- config.font = wezterm.font("FiraCode NFM", { weight = "Medium" })
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 16.0
-config.color_scheme = "kanagawabones"
+config.color_scheme = "kanagawa-dragon"
+config.force_reverse_video_cursor = true
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 
