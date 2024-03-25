@@ -21,8 +21,9 @@ config.text_background_opacity = 1.0
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 26.0
-config.color_scheme = "kanagawabones"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.color_scheme = "kanagawa-dragon"
+config.force_reverse_video_cursor = true
 
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
@@ -30,15 +31,15 @@ config.tab_bar_at_bottom = true
 
 config.audible_bell = "Disabled"
 
-wezterm.on("gui-attached", function(_)
-	-- maximize all displayed windows on startup
-	local workspace = mux.get_active_workspace()
-	for _, window in ipairs(mux.all_windows()) do
-		if window:get_workspace() == workspace then
-			window:gui_window():maximize()
-		end
-	end
-end)
+-- wezterm.on("gui-attached", function(_)
+-- 	-- maximize all displayed windows on startup
+-- 	local workspace = mux.get_active_workspace()
+-- 	for _, window in ipairs(mux.all_windows()) do
+-- 		if window:get_workspace() == workspace then
+-- 			window:gui_window():maximize()
+-- 		end
+-- 	end
+-- end)
 
 config.keys = keymaps
 
