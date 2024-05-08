@@ -21,4 +21,9 @@ return {
 		mods = "CMD",
 		action = wezterm.action({ SendString = "\x05" }),
 	},
+	{
+		key = "p",
+		mods = "LEADER",
+		action = wezterm.action.PaneSelect,
+	}
 }

@@ -40,6 +40,7 @@ wezterm.on("gui-attached", function(_)
 	end
 end)
 
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keymaps
 
 return config
