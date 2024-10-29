@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 local colors = require("colors")
 local mux = wezterm.mux
+local keymaps = require("keymaps")
 local font = require("font")
 
 local config = wezterm.config_builder()
 
--- default to WSL
 config.default_domain = "WSL:Ubuntu"
 
 config.window_padding = {
@@ -41,5 +41,8 @@ wezterm.on("gui-attached", function(_)
 		end
 	end
 end)
+
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = keymaps
 
 return config
