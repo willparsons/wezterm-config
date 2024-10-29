@@ -23,7 +23,7 @@ config.font_size = font.font_size
 
 config.color_schemes = colors.color_schemes
 config.color_scheme = "Gruvbox Material Hard (Gogh)"
-config.force_reverse_video_cursor = true
+config.force_reverse_video_cursor = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.use_fancy_tab_bar = false
