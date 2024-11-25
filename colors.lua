@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local gruvbox = wezterm.color.get_builtin_schemes()["Gruvbox Material (Gogh)"]
-gruvbox.background = "#1d2021"
+gruvbox.background = "#151818"
 
 return {
 	color_schemes = {
