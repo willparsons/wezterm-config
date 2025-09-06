@@ -8,6 +8,8 @@ local config = wezterm.config_builder()
 
 config.default_domain = "WSL:Ubuntu"
 
+config.front_end = "WebGpu"
+
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -21,8 +23,10 @@ config.font = font.font
 config.font_rules = font.font_rules
 config.font_size = font.font_size
 
-config.color_schemes = colors.color_schemes
-config.color_scheme = "Gruvbox Material Hard (Gogh)"
+config.color_scheme_dirs = { "C:\\Users\\willi\\.config\\wezterm\\colors" }
+-- config.color_schemes = colors.color_schemes
+config.color_scheme = "kanagawa-paper-ink"
+-- config.colors = require("colors.kanagawa-dragon").colors
 config.force_reverse_video_cursor = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
@@ -31,6 +35,8 @@ config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 
 config.audible_bell = "Disabled"
+
+config.win32_system_backdrop = "Tabbed"
 
 -- maximize all displayed windows on startup
 wezterm.on("gui-attached", function(_)
