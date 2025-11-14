@@ -7,6 +7,16 @@ local font = require("font")
 local config = wezterm.config_builder()
 
 config.max_fps = 240
+
+config.wsl_domains = {
+	{
+		name = "WSL:Ubuntu",
+		distribution = "Ubuntu",
+		default_cwd = "/home/will",
+		default_prog = { "/home/linuxbrew/.linuxbrew/bin/fish", "-l" },
+	},
+}
+
 config.default_domain = "WSL:Ubuntu"
 
 config.front_end = "WebGpu"
