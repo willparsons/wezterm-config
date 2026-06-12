@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 local fontName = "MonaspiceNe Nerd Font Mono"
+-- local fontName = "FiraCode Nerd Font Mono"
 
 return {
 	font = wezterm.font(fontName),
