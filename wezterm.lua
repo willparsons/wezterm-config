@@ -46,6 +46,7 @@ config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 
 config.audible_bell = "Disabled"
+config.status_update_interval = 100
 
 config.win32_system_backdrop = "Tabbed"
 
@@ -61,5 +62,16 @@ end)
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keymaps
+
+wezterm.on("update-right-status", function(window, pane)
+	local zoomed = ""
+	for _, pane_info in ipairs(window:active_tab():panes_with_info()) do
+		if pane_info.is_zoomed then
+			zoomed = "(Z)"
+			break
+		end
+	end
+	window:set_right_status(zoomed)
+end)
 
 return config
