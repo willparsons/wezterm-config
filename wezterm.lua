@@ -1,10 +1,12 @@
 local wezterm = require("wezterm")
-local colors = require("colors")
 local mux = wezterm.mux
 local keymaps = require("keymaps")
 local font = require("font")
 
+local stack = wezterm.plugin.require("https://github.com/bad-noodles/stack.wez")
+
 local config = wezterm.config_builder()
+stack.apply_to_config(config)
 
 config.max_fps = 240
 
@@ -31,15 +33,16 @@ config.window_background_opacity = 1.0
 config.text_background_opacity = 1.0
 
 config.font = font.font
-config.font_rules = font.font_rules
 config.font_size = font.font_size
+config.font_rules = font.font_rules
+config.line_height = font.line_height
 
 config.color_scheme_dirs = { "C:\\Users\\willi\\.config\\wezterm\\colors" }
 -- config.color_schemes = colors.color_schemes
 config.color_scheme = "kanagawa-paper-ink"
 -- config.colors = require("colors.kanagawa-dragon").colors
 config.force_reverse_video_cursor = false
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" }
 
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
@@ -63,7 +66,7 @@ end)
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keymaps
 
-wezterm.on("update-right-status", function(window, pane)
+wezterm.on("update-right-status", function(window)
 	local zoomed = ""
 	for _, pane_info in ipairs(window:active_tab():panes_with_info()) do
 		if pane_info.is_zoomed then

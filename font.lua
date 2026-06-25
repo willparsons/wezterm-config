@@ -2,10 +2,12 @@ local wezterm = require("wezterm")
 
 local fontName = "MonaspiceNe Nerd Font Mono"
 -- local fontName = "FiraCode Nerd Font Mono"
+-- local fontName = "JetBrainsMono NFM"
 
 return {
 	font = wezterm.font(fontName),
-	font_size = 17.0,
+	font_size = 16.0,
+	line_height = 1.1,
 	-- For some reason if we use MonaspiceNe this cannot be figured out by wezterm
 	font_rules = {
 		-- Bold
