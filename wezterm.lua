@@ -68,11 +68,9 @@ config.keys = keymaps
 
 wezterm.on("update-right-status", function(window)
 	local zoomed = ""
-	for _, pane_info in ipairs(window:active_tab():panes_with_info()) do
-		if pane_info.is_zoomed then
-			zoomed = "(Z)"
-			break
-		end
+	local stack_info = stack.stack_info(window:active_tab():tab_id())
+	if stack_info then
+		zoomed = "(Z) " .. stack_info.index .. "/" .. stack_info.count
 	end
 	window:set_right_status(zoomed)
 end)
