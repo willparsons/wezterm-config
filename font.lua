@@ -6,7 +6,7 @@ local fontName = "MonaspiceNe Nerd Font Mono"
 
 return {
 	font = wezterm.font(fontName),
-	font_size = 16.0,
+	font_size = 17.0,
 	line_height = 1.1,
 	-- For some reason if we use MonaspiceNe this cannot be figured out by wezterm
 	font_rules = {
